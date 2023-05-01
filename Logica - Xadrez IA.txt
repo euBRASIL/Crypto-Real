@@ -1,0 +1,49 @@
+
+Com base no arquivo disponibilizado, aqui está uma lista das funções JavaScript presentes no código e uma breve descrição do que cada uma faz:
+
+init() - Inicia o jogo, criando o tabuleiro e definindo as configurações iniciais do jogo.
+createBoard() - Cria o tabuleiro do jogo com todas as peças nas suas posições iniciais.
+resetBoard() - Reinicia o tabuleiro e as configurações do jogo para o estado inicial.
+drawBoard() - Desenha o tabuleiro do jogo na tela, incluindo todas as peças.
+getPieceAt(square) - Retorna a peça que está na casa especificada do tabuleiro.
+getSquareFromCoords(coords) - Retorna a casa do tabuleiro correspondente às coordenadas especificadas na tela.
+getPieceMoves(piece, square) - Retorna uma lista de todas as possíveis jogadas da peça na casa especificada.
+getValidMoves(square) - Retorna uma lista de todas as jogadas válidas para a peça na casa especificada.
+isMoveValid(piece, move) - Verifica se a jogada especificada é válida para a peça em questão.
+movePiece(piece, move) - Move a peça especificada para a casa especificada.
+promotePiece(piece) - Promove um peão que alcançou a última linha do tabuleiro.
+isCheckmate() - Verifica se o jogo terminou em xeque-mate.
+isStalemate() - Verifica se o jogo terminou em empate.
+isKingInCheck() - Verifica se o rei está em xeque.
+isSquareUnderAttack(square, color) - Verifica se a casa especificada está sob ataque de alguma peça do jogador especificado.
+getAttackingPieces(square, color) - Retorna uma lista de todas as peças do jogador especificado que estão atacando a casa especificada.
+getKing(color) - Retorna a peça do rei do jogador especificado.
+getAllMoves(color) - Retorna uma lista de todas as jogadas possíveis do jogador especificado.
+getOpponentColor(color) - Retorna a cor do oponente do jogador especificado.
+getPieceValue(piece) - Retorna o valor da peça em pontos.
+getBoardValue(color) - Retorna o valor do tabuleiro para o jogador especificado.
+evaluateBoard(color) - Retorna uma pontuação da posição atual do tabuleiro para o jogador especificado.
+minimax(depth, alpha, beta, maximizingPlayer) - Algoritmo de minimax com corte alfa-beta para selecionar a melhor jogada.
+makeBestMove() - Executa a jogada selecionada pelo algoritmo de minimax.
+makeRandomMove() - Executa uma jogada aleatória.
+Espero que isso ajude!
+
+
+
+
+
+Em resumo, a lógica de funcionamento dessa IA de xadrez é baseada em algoritmos de busca em árvore (como o algoritmo Minimax) combinados com heurísticas para avaliar a posição do tabuleiro e determinar qual jogada é a melhor em determinado momento.
+
+Aqui está uma explicação mais detalhada de como a lógica funciona:
+
+A função minimaxRoot é o ponto de entrada da IA. Ela recebe como parâmetro a posição atual do tabuleiro e um número que representa a profundidade da busca na árvore. A partir disso, ela chama a função minimax para avaliar cada jogada possível a partir da posição atual.
+
+A função minimax é a função principal que implementa o algoritmo Minimax. Ela avalia todas as jogadas possíveis a partir da posição atual e chama recursivamente a função minimax para avaliar as jogadas seguintes. O algoritmo Minimax funciona basicamente criando uma árvore de jogadas possíveis, onde cada nó representa uma jogada e cada folha representa uma posição final do tabuleiro. A função minimax calcula o valor de cada folha usando uma função heurística e, em seguida, retorna o valor máximo ou mínimo (dependendo se é a vez do jogador ou do adversário) de seus filhos, que são os nós intermediários na árvore.
+
+A função heurística usada para avaliar a posição do tabuleiro é a evaluateBoard. Ela atribui uma pontuação para cada peça no tabuleiro, levando em consideração sua posição e sua importância relativa. Por exemplo, a rainha tem uma pontuação maior do que um peão, e uma peça centralizada tem uma pontuação maior do que uma peça na borda do tabuleiro.
+
+A função alphaBeta é uma versão otimizada do algoritmo Minimax que usa poda alfa-beta para reduzir o número de nós que precisam ser avaliados na árvore de jogadas. A poda alfa-beta é uma técnica que permite interromper a avaliação de um nó assim que é determinado que ele não levará a uma jogada melhor do que o que já foi encontrado.
+
+A função getBestMove é usada para retornar a jogada considerada a melhor pela IA. Ela chama a função minimaxRoot para avaliar todas as jogadas possíveis a partir da posição atual e retorna a jogada com o maior valor calculado.
+
+Em resumo, essa IA de xadrez usa uma combinação de algoritmos de busca em árvore e heurísticas para avaliar a posição do tabuleiro e determinar a melhor jogada possível em cada turno. Espero que isso ajude a entender melhor como funciona a lógica desse programa!
